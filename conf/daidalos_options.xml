@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<game_options>
+    <resolution>6</resolution>
+    <fullscreen>0</fullscreen>
+    <visibility>3</visibility>
+    <mouse_sensibility>5</mouse_sensibility>
+    <invert_y_axis>0</invert_y_axis>
+    <mouse_smoothing>0</mouse_smoothing>
+    <gamma>8</gamma>
+    <antialiasing>0</antialiasing>
+    <filtering>16</filtering>
+    <light_quality>3</light_quality>
+    <textures_quality>3</textures_quality>
+    <sound_volume>10</sound_volume>
+    <music_volume>10</music_volume>
+    <impacts_value>3</impacts_value>
+    <particles_value>3</particles_value>
+    <language>1</language>
+    <debug>0</debug>
+</game_options>

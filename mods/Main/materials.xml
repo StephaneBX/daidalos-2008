@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<materials>
+	<wood>
+		<impact>wood_impact</impact>
+		<step1>wood_step1</step1>
+		<step2>wood_step2</step2>
+		<step3>wood_step3</step3>
+		<step4>wood_step4</step4>
+	</wood>
+	<metal>
+		<impact>metal_impact</impact>
+		<step1>metal_step1</step1>
+		<step2>metal_step2</step2>
+		<step3>metal_step3</step3>
+		<step4>metal_step4</step4>
+	</metal>
+	<rock>
+		<impact>rock_impact</impact>
+		<step1>rock_step1</step1>
+		<step2>rock_step2</step2>
+		<step3>rock_step3</step3>
+		<step4>rock_step4</step4>
+	</rock>
+</materials>

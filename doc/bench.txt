@@ -1,0 +1,16 @@
+Celeron 2600+ ATI 9250
+=================================
+Project D 0.416
+Avg: 17.262 - Min: 12 - Max: 24
+
+Project D 0.6xx
+Avg: 29.583 - Min: 17 - Max: 47
+
+
+Pentium P8400 ATI HD 3650
+=================================
+Project D 0.416
+Avg: 173.711 - Min: 127 - Max: 235
+
+Project D 0.6xxx
+Avg: 227.681 - Min: 135 - Max: 330

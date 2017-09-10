@@ -1,0 +1,79 @@
+==============================================================================================================================================================
+Files under CGTexture licence (http://www.cgtextures.com/content.php?action=license)
+==============================================================================================================================================================
+- barrel1_1.tga
+- barrel1_2.tga
+- crate_1.tga
+- crate_2.tga
+- low_ceiling.tga
+- tower.tga
+- ceiling1.tga
+- ceiling2.tga
+- ceiling3.tga
+- ground1.tga
+- ground2.tga
+- ground3.tga
+- pillar1.tga
+- wall1.tga
+- wall2.tga
+- wall3.tga
+
+
+==============================================================================================================================================================
+Files under Soundsnap licence (http://www.soundsnap.com/licence)
+==============================================================================================================================================================
+- metal_impact.wav
+- rock_impact.wav
+- wood_impact.wav
+- beep.wav
+- changeWeapon.wav
+- hurt.wav
+- jump.wav
+- soundTest.wav
+- intro.wav
+- music1.wav
+- armor.wav
+- door_moved.wav
+- door_stoped.wav
+- door_unlocked.wav
+- flashlight.wav
+- flashlight_pick.wav
+- get_weapon.wav
+- handgun_ammo.wav
+- handgun_fire.wav
+- handgun_reload.wav
+- health.wav
+- key_pick.wav
+- movablePikes_activate.wav
+- movablePikes_raise.wav
+- shotgun_ammo.wav
+- shotgun_fire.wav
+- shotgun_reload.wav
+- step1_1.wav
+- step1_2.wav
+- step2_1.wav
+- step2_2.wav
+
+
+==============================================================================================================================================================
+The rest is under CC-BY-NC-SA 3.0 licence
+==============================================================================================================================================================
+Attribution-Noncommercial-Share Alike 3.0 Unported
+
+You are free:
+to Share — to copy, distribute and transmit the work
+to Remix — to adapt the work
+
+Under the following conditions:
+Attribution — You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).
+Noncommercial — You may not use this work for commercial purposes.
+Share Alike — If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one.
+
+With the understanding that:
+Waiver — Any of the above conditions can be waived if you get permission from the copyright holder.
+Public Domain — Where the work or any of its elements is in the public domain under applicable law, that status is in no way affected by the license.
+Other Rights — In no way are any of the following rights affected by the license:
+Your fair dealing or fair use rights, or other applicable copyright exceptions and limitations;
+The author's moral rights;
+Rights other persons may have either in the work itself or in how the work is used, such as publicity or privacy rights.
+Notice — For any reuse or distribution, you must make clear to others the license terms of this work. The best way to do this is with a link to this web page.

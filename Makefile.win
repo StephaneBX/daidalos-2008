@@ -1,0 +1,51 @@
+# Project: Daidalos
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = Daidalos_private.res
+OBJ  = Test/md2/gl_ext.o Test/md2/maths.o Test/md2/tga.o Test/tinyXML/tinyxml.o Test/tinyXML/tinyxmlerror.o Test/tinyXML/tinyxmlparser.o Test/main.o $(RES)
+LINKOBJ  = Test/md2/gl_ext.o Test/md2/maths.o Test/md2/tga.o Test/tinyXML/tinyxml.o Test/tinyXML/tinyxmlerror.o Test/tinyXML/tinyxmlparser.o Test/main.o $(RES)
+LIBS =  -L"C:/Utiles/Editeurs/Dev-Cpp/lib" -mwindows -lmingw32 -lSDLmain -lSDL -lopengl32 -lSDL_mixer -lglu32 -O3  
+INCS =  -I"C:/Utiles/Editeurs/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Utiles/Editeurs/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Utiles/Editeurs/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Utiles/Editeurs/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Utiles/Editeurs/Dev-Cpp/include/c++/3.4.2"  -I"C:/Utiles/Editeurs/Dev-Cpp/include" 
+BIN  = Daidalos_devcpp.exe
+CXXFLAGS = $(CXXINCS)   -fexpensive-optimizations -O3
+CFLAGS = $(INCS) -Dmain=SDL_main   -fexpensive-optimizations -O3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Daidalos_devcpp.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Daidalos_devcpp.exe" $(LIBS)
+
+Test/md2/gl_ext.o: Test/md2/gl_ext.cpp
+	$(CPP) -c Test/md2/gl_ext.cpp -o Test/md2/gl_ext.o $(CXXFLAGS)
+
+Test/md2/maths.o: Test/md2/maths.cpp
+	$(CPP) -c Test/md2/maths.cpp -o Test/md2/maths.o $(CXXFLAGS)
+
+Test/md2/tga.o: Test/md2/tga.cpp
+	$(CPP) -c Test/md2/tga.cpp -o Test/md2/tga.o $(CXXFLAGS)
+
+Test/tinyXML/tinyxml.o: Test/tinyXML/tinyxml.cpp
+	$(CPP) -c Test/tinyXML/tinyxml.cpp -o Test/tinyXML/tinyxml.o $(CXXFLAGS)
+
+Test/tinyXML/tinyxmlerror.o: Test/tinyXML/tinyxmlerror.cpp
+	$(CPP) -c Test/tinyXML/tinyxmlerror.cpp -o Test/tinyXML/tinyxmlerror.o $(CXXFLAGS)
+
+Test/tinyXML/tinyxmlparser.o: Test/tinyXML/tinyxmlparser.cpp
+	$(CPP) -c Test/tinyXML/tinyxmlparser.cpp -o Test/tinyXML/tinyxmlparser.o $(CXXFLAGS)
+
+Test/main.o: Test/main.cpp
+	$(CPP) -c Test/main.cpp -o Test/main.o $(CXXFLAGS)
+
+Daidalos_private.res: Daidalos_private.rc 
+	$(WINDRES) -i Daidalos_private.rc --input-format=rc -o Daidalos_private.res -O coff 

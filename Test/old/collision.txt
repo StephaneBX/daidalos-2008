@@ -1,0 +1,312 @@
+void level1::collisions(long time)
+{
+	double x1Previous,x2Previous,x3Previous,x4Previous,z1Previous,z2Previous,z3Previous,z4Previous;
+	double x1Actual,x2Actual,x3Actual,x4Actual,z1Actual,z2Actual,z3Actual,z4Actual;
+
+	x1Previous = player1->getXPrevious() + PLAYERDETECTION;
+	x2Previous = player1->getXPrevious() - PLAYERDETECTION;
+	x3Previous = player1->getXPrevious() + PLAYERDETECTION;
+	x4Previous = player1->getXPrevious() - PLAYERDETECTION;
+
+	x1Actual = player1->getCoorX() + PLAYERDETECTION;
+	x2Actual = player1->getCoorX() - PLAYERDETECTION;
+	x3Actual = player1->getCoorX() + PLAYERDETECTION;
+	x4Actual = player1->getCoorX() - PLAYERDETECTION;
+
+	z1Previous = player1->getZPrevious();
+	z2Previous = player1->getZPrevious();
+	z3Previous = player1->getZPrevious() - PLAYERDETECTION * 2;
+	z4Previous = player1->getZPrevious() - PLAYERDETECTION * 2;
+
+	z1Actual = player1->getCoorZ();
+	z2Actual = player1->getCoorZ();
+	z3Actual = player1->getCoorZ() - PLAYERDETECTION * 2;
+	z4Actual = player1->getCoorZ() - PLAYERDETECTION * 2;
+
+	if(x1Previous != x1Actual || z1Previous != z1Actual)
+	{
+		int actualBloc1 = this->width*(int)(z1Actual / BLOCDEFAULTSIZE) + (int)(-x1Actual / BLOCDEFAULTSIZE);
+		int actualBloc2 = this->width*(int)(z2Actual / BLOCDEFAULTSIZE) + (int)(-x2Actual / BLOCDEFAULTSIZE);
+		int actualBloc3 = this->width*(int)(z3Actual / BLOCDEFAULTSIZE) + (int)(-x3Actual / BLOCDEFAULTSIZE);
+		int actualBloc4 = this->width*(int)(z4Actual / BLOCDEFAULTSIZE) + (int)(-x4Actual / BLOCDEFAULTSIZE);
+
+		int previousBloc1 = this->width*(int)(z1Previous / BLOCDEFAULTSIZE) + (int)(-x1Previous / BLOCDEFAULTSIZE);
+		int previousBloc2 = this->width*(int)(z2Previous / BLOCDEFAULTSIZE) + (int)(-x2Previous / BLOCDEFAULTSIZE);
+		int previousBloc3 = this->width*(int)(z3Previous / BLOCDEFAULTSIZE) + (int)(-x3Previous / BLOCDEFAULTSIZE);
+		int previousBloc4 = this->width*(int)(z4Previous / BLOCDEFAULTSIZE) + (int)(-x4Previous / BLOCDEFAULTSIZE);
+
+		this->collision = false;
+		if(actualBloc1 != previousBloc1)
+		{
+			if(previousBloc1 >= 0  && previousBloc1 < (this->width * this->height) && blocs[previousBloc1] != NULL)
+			{
+				if(blocs[previousBloc1]->isLeftBoxExists() && blocs[previousBloc1]->getLeftBox()->isCollision(x1Actual,z1Actual))
+				{
+					player1->setXPrevious(player1->getCoorX());
+					player1->setCoorX(blocs[previousBloc1]->getLeftBox()->getXMin() - PLAYERDETECTION - 0.01);
+					collision = true;
+				}
+
+				if(blocs[previousBloc1]->isUpBoxExists() && blocs[previousBloc1]->getUpBox()->isCollision(x1Actual,z1Actual))
+				{
+					player1->setZPrevious(player1->getCoorZ());
+					player1->setCoorZ(blocs[previousBloc1]->getUpBox()->getZMin() - 0.01);
+					collision = true;
+				}
+			}
+		}
+		else
+		{
+			if(actualBloc1 >= 0 && actualBloc1 < (this->width * this->height) && blocs[actualBloc1] != NULL)
+			{
+				if(blocs[actualBloc1]->isLeftBoxExists() && blocs[actualBloc1]->getLeftBox()->isCollision(x1Actual,z1Actual))
+				{
+					player1->setXPrevious(player1->getCoorX());
+					player1->setCoorX(blocs[actualBloc1]->getLeftBox()->getXMin() - PLAYERDETECTION - 0.01);
+					collision = true;
+				}
+
+				if(blocs[actualBloc1]->isUpBoxExists() && blocs[actualBloc1]->getUpBox()->isCollision(x1Actual,z1Actual))
+				{
+					player1->setZPrevious(player1->getCoorZ());
+					player1->setCoorZ(blocs[actualBloc1]->getUpBox()->getZMin() - 0.01);
+					collision = true;
+				}
+			}
+		}
+
+		if(actualBloc2 != previousBloc2)
+		{
+			if(previousBloc2 >= 0  && previousBloc2 < (this->width * this->height) && blocs[previousBloc2] != NULL)
+			{
+				if(blocs[previousBloc2]->isRightBoxExists() && blocs[previousBloc2]->getRightBox()->isCollision(x2Actual,z2Actual))
+				{
+					player1->setXPrevious(player1->getCoorX());
+					player1->setCoorX(blocs[previousBloc2]->getRightBox()->getXMax() + PLAYERDETECTION + 0.01);
+					collision = true;
+				}
+
+				if(blocs[previousBloc2]->isUpBoxExists() && blocs[previousBloc2]->getUpBox()->isCollision(x2Actual,z2Actual))
+				{
+					player1->setZPrevious(player1->getCoorZ());
+					player1->setCoorZ(blocs[previousBloc2]->getUpBox()->getZMin() - 0.01);
+					collision = true;
+				}
+			}
+		}
+		else
+		{
+			if(actualBloc2 >= 0 && actualBloc2 < (this->width * this->height) && blocs[actualBloc2] != NULL)
+			{
+				if(blocs[actualBloc2]->isRightBoxExists() && blocs[actualBloc2]->getRightBox()->isCollision(x2Actual,z2Actual))
+				{
+					player1->setXPrevious(player1->getCoorX());
+					player1->setCoorX(blocs[actualBloc2]->getRightBox()->getXMax() + 2.01);
+					collision = true;
+				}
+
+				if(blocs[actualBloc2]->isUpBoxExists() && blocs[actualBloc2]->getUpBox()->isCollision(x2Actual,z2Actual))
+				{
+					player1->setZPrevious(player1->getCoorZ());
+					player1->setCoorZ(blocs[actualBloc2]->getUpBox()->getZMin() - 0.01);
+					collision = true;
+				}
+			}
+		}
+
+		if(actualBloc3 != previousBloc3)
+		{
+			if(previousBloc3 >= 0  && previousBloc3 < (this->width * this->height) && blocs[previousBloc3] != NULL)
+			{
+				if(blocs[previousBloc3]->isLeftBoxExists() && blocs[previousBloc3]->getLeftBox()->isCollision(x3Actual,z3Actual))
+				{
+					player1->setXPrevious(player1->getCoorX());
+					player1->setCoorX(blocs[previousBloc3]->getLeftBox()->getXMin() - PLAYERDETECTION - 0.01);
+					collision = true;
+				}
+
+				if(blocs[previousBloc3]->isDownBoxExists() && blocs[previousBloc3]->getDownBox()->isCollision(x3Actual,z3Actual))
+				{
+					player1->setZPrevious(player1->getCoorZ());
+					player1->setCoorZ(blocs[previousBloc3]->getDownBox()->getZMax() + PLAYERDETECTION * 2 + 0.01);
+					collision = true;
+				}
+			}
+		}
+		else
+		{
+			if(actualBloc3 >= 0 && actualBloc3 < (this->width * this->height) && blocs[actualBloc3] != NULL)
+			{
+				if(blocs[actualBloc3]->isLeftBoxExists() && blocs[actualBloc3]->getLeftBox()->isCollision(x3Actual,z3Actual))
+				{
+					player1->setXPrevious(player1->getCoorX());
+					player1->setCoorX(blocs[actualBloc3]->getLeftBox()->getXMin() - PLAYERDETECTION - 0.01);
+					collision = true;
+				}
+
+				if(blocs[actualBloc3]->isDownBoxExists() && blocs[actualBloc3]->getDownBox()->isCollision(x3Actual,z3Actual))
+				{
+					player1->setZPrevious(player1->getCoorZ());
+					player1->setCoorZ(blocs[actualBloc3]->getDownBox()->getZMax() + PLAYERDETECTION * 2 + 0.01);
+					collision = true;
+				}
+			}
+		}
+
+		if(actualBloc4 != previousBloc4)
+		{
+			if(previousBloc4 >= 0  && previousBloc4 < (this->width * this->height) && blocs[previousBloc4] != NULL)
+			{
+				if(blocs[previousBloc4]->isRightBoxExists() && blocs[previousBloc4]->getRightBox()->isCollision(x4Actual,z4Actual))
+				{
+					player1->setXPrevious(player1->getCoorX());
+					player1->setCoorX(blocs[previousBloc4]->getRightBox()->getXMax() + PLAYERDETECTION + 0.01);
+					collision = true;
+				}
+
+				if(blocs[previousBloc4]->isDownBoxExists() && blocs[previousBloc4]->getDownBox()->isCollision(x4Actual,z4Actual))
+				{
+					player1->setZPrevious(player1->getCoorZ());
+					player1->setCoorZ(blocs[previousBloc4]->getDownBox()->getZMax() + PLAYERDETECTION * 2 + 0.01);
+					collision = true;
+				}
+			}
+		}
+		else
+		{
+			if(actualBloc4 >= 0 && actualBloc4 < (this->width * this->height) && blocs[actualBloc4] != NULL)
+			{
+				if(blocs[actualBloc4]->isRightBoxExists() && blocs[actualBloc4]->getRightBox()->isCollision(x4Actual,z4Actual))
+				{
+					player1->setXPrevious(player1->getCoorX());
+					player1->setCoorX(blocs[actualBloc4]->getRightBox()->getXMax() + PLAYERDETECTION + 0.01);
+					collision = true;
+				}
+
+				if(blocs[actualBloc4]->isDownBoxExists() && blocs[actualBloc4]->getDownBox()->isCollision(x4Actual,z4Actual))
+				{
+					player1->setZPrevious(player1->getCoorZ());
+					player1->setCoorZ(blocs[actualBloc4]->getDownBox()->getZMax() + PLAYERDETECTION * 2 + 0.01);
+					collision = true;
+				}
+			}
+		}
+		
+		//Collision actuelle
+		this->collisionObj = false;
+		double XTest = 0;
+		double ZTest = 0;
+
+		for(int b = 0 ; b < 5 && !collisionObj ; b++)
+		{
+			for(int i = 0 ; i < 3 ; i ++)
+			{
+				if(i == 0)
+					XTest = 0;
+
+				if(i == 1)
+					XTest = PLAYERDETECTION;
+
+				if(i == 2)
+					XTest = -PLAYERDETECTION;
+
+				for(int j = 0 ; j < 3 ; j ++)
+				{
+					if(j == 0)
+						ZTest = 0;
+
+					if(j == 1)
+						ZTest = PLAYERDETECTION;
+
+					if(j == 2)
+						ZTest = -PLAYERDETECTION;
+
+					if((objects[player1->getActualObjectCoordinateZ(ZTest,-1)][player1->getActualObjectCoordinateX(XTest)] != NULL || objects[player1->getActualObjectCoordinateZ(ZTest,-3)][player1->getActualObjectCoordinateX(XTest)] != NULL ))
+					{
+						if( objects[player1->getActualObjectCoordinateZ(ZTest,-2)][player1->getActualObjectCoordinateX(XTest)] != NULL  )
+						{
+							double coorZTest = player1->getCoorZ();
+							double coorXTest = player1->getCoorX();
+
+							if(player1->getPreviousObjectCoordinateX() < player1->getActualObjectCoordinateX(XTest) && (player1->getPreviousObjectCoordinateZ(-3) == player1->getActualObjectCoordinateZ(ZTest,-3) || player1->getPreviousObjectCoordinateZ(-1) == player1->getActualObjectCoordinateZ(ZTest,-1)))
+							{
+								player1->setXPrevious(player1->getCoorX());
+								player1->setCoorX(player1->getActualObjectCoordinateX(XTest) * -2 + PLAYERDETECTION + 0.01);
+							}
+							else
+							{
+								if(player1->getPreviousObjectCoordinateX() > player1->getActualObjectCoordinateX(XTest) && (player1->getPreviousObjectCoordinateZ(-3) == player1->getActualObjectCoordinateZ(ZTest,-3) || player1->getPreviousObjectCoordinateZ(-1) == player1->getActualObjectCoordinateZ(ZTest,-1)))
+								{
+									player1->setXPrevious(player1->getCoorX());
+									player1->setCoorX(player1->getActualObjectCoordinateX(XTest) * -2 - PLAYERDETECTION * 2 - 0.01);
+								}
+								else
+								{
+									if(player1->getPreviousObjectCoordinateZ(-2) < player1->getActualObjectCoordinateZ(ZTest,-2) && player1->getPreviousObjectCoordinateX() == player1->getActualObjectCoordinateX(XTest))
+									{
+										player1->setZPrevious(player1->getCoorZ());
+										player1->setCoorZ(player1->getActualObjectCoordinateZ(ZTest,-2) * 2);
+									}
+									else
+									{
+										if(player1->getPreviousObjectCoordinateZ(-2) > player1->getActualObjectCoordinateZ(ZTest,-2) && player1->getPreviousObjectCoordinateX() == player1->getActualObjectCoordinateX(XTest))
+										{
+											player1->setZPrevious(player1->getCoorZ());
+											player1->setCoorZ(player1->getActualObjectCoordinateZ(ZTest,-2) * 2 + 2 + PLAYERDETECTION * 2 + 0.01);
+										}
+									}
+								}
+							}
+						}
+						else
+						{
+							if(player1->getPreviousObjectCoordinateX() < player1->getActualObjectCoordinateX(XTest) && (player1->getPreviousObjectCoordinateZ(-3) == player1->getActualObjectCoordinateZ(ZTest,-3) || player1->getPreviousObjectCoordinateZ(-1) == player1->getActualObjectCoordinateZ(ZTest,-1)))
+							{
+								player1->setCoorX(player1->getActualObjectCoordinateX(XTest) * -2 + PLAYERDETECTION + 0.01);
+							}
+							else
+							{
+								if(player1->getPreviousObjectCoordinateX() > player1->getActualObjectCoordinateX(XTest) && (player1->getPreviousObjectCoordinateZ(-3) == player1->getActualObjectCoordinateZ(ZTest,-3) || player1->getPreviousObjectCoordinateZ(-1) == player1->getActualObjectCoordinateZ(ZTest,-1)))
+								{
+									player1->setCoorX(player1->getActualObjectCoordinateX(XTest) * -2 - PLAYERDETECTION * 2 -0.01);
+								}
+							}
+						}
+						collisionObj = true;
+					}
+				}
+			}
+		}
+	}
+
+	x1Actual = player1->getCoorX() + PLAYERDETECTION;
+	x2Actual = player1->getCoorX() - PLAYERDETECTION;
+	x3Actual = player1->getCoorX() + PLAYERDETECTION;
+	x4Actual = player1->getCoorX() - PLAYERDETECTION;
+
+	z1Actual = player1->getCoorZ();
+	z2Actual = player1->getCoorZ();
+	z3Actual = player1->getCoorZ() - PLAYERDETECTION * 2;
+	z4Actual = player1->getCoorZ() - PLAYERDETECTION * 2;
+
+	int actualBloc1 = this->width*(int)(z1Actual / BLOCDEFAULTSIZE) + (int)(-x1Actual / BLOCDEFAULTSIZE);
+	int actualBloc2 = this->width*(int)(z2Actual / BLOCDEFAULTSIZE) + (int)(-x2Actual / BLOCDEFAULTSIZE);
+	int actualBloc3 = this->width*(int)(z3Actual / BLOCDEFAULTSIZE) + (int)(-x3Actual / BLOCDEFAULTSIZE);
+	int actualBloc4 = this->width*(int)(z4Actual / BLOCDEFAULTSIZE) + (int)(-x4Actual / BLOCDEFAULTSIZE);
+
+	if(actualBloc1 < 0 || actualBloc1 >= (this->width * this->height) || blocs[actualBloc1] == NULL || actualBloc2 < 0 || actualBloc2 >= (this->width * this->height) || blocs[actualBloc2] == NULL || actualBloc3 < 0 || actualBloc3 >= (this->width * this->height) || blocs[actualBloc3] == NULL || actualBloc4 < 0 || actualBloc4 >= (this->width * this->height) || blocs[actualBloc4] == NULL || (this->collision && this->collisionObj))
+	{
+		player1->setCoorX(this->lastValidX);
+		player1->setXPrevious(this->lastValidX);
+		player1->setCoorZ(this->lastValidZ);
+		player1->setZPrevious(this->lastValidZ);
+	}
+	else
+	{
+		if(!this->collision && !this->collisionObj)
+		{
+			this->lastValidX = player1->getCoorX();
+			this->lastValidZ = player1->getCoorZ();
+		}
+	}
+}

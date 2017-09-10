@@ -1,0 +1,189 @@
+Collisions Objets:
+
+//Collisions Test
+		bool collision = false;
+
+		for(int b = 0 ; b < 5 && !collision ; b++)
+		{
+			collision = false;
+			for(double i = 0.0 ; i < 360.0 ; i += 10.0)
+			{
+				double ZTest = player1->getCoorZ() - 2.0 + sin(i / 180.0 * 3.14) * 2.0;
+				double XTest = -player1->getCoorX() + cos(i / 180.0 * 3.14) * 2.0;
+				double centerX = player1->getCoorX();
+				double centerZ = player1->getCoorZ() - 2.0;
+
+				if(objects[(int)(ZTest / 2)][(int)(XTest / 2)] != NULL)
+				{
+					//Found a collision
+					collision = true;
+
+					//We take reference points for collision test
+					double * a = objects[(int)(ZTest / 2)][(int)(XTest / 2)]->getPointA();
+					double * b = objects[(int)(ZTest / 2)][(int)(XTest / 2)]->getPointB();
+					double * c = objects[(int)(ZTest / 2)][(int)(XTest / 2)]->getPointC();
+					double * d = objects[(int)(ZTest / 2)][(int)(XTest / 2)]->getPointD();
+					double * center = player1->getCenterPoint();
+
+					//Test results between circle (player) and the bloc
+					int circleAB = mathM->circleInSegment(a, b, center, 2.0);
+					int circleCD = mathM->circleInSegment(c, d, center, 2.0);
+					int circleAC = mathM->circleInSegment(a, c, center, 2.0);
+					int circleBD = mathM->circleInSegment(b, d, center, 2.0);
+
+					if(circleAB > 0)
+					{
+						//On Top of the object
+						double rectA[2], rectB[2], rectC[2], rectD[2];
+						double triangle1A[2], triangle1B[2], triangle1C[2];
+						double triangle2A[2], triangle2B[2], triangle2C[2];
+						rectA[0] = a[0] ;
+						rectA[1] = a[1] + 2.0;
+						rectB[0] = b[0];
+						rectB[1] = b[1] + 2.0;
+						rectC[0] = a[0];
+						rectC[1] = a[1];
+						rectD[0] = b[0];
+						rectD[1] = b[1];
+
+						triangle1A[0] = a[0] + 2.0;
+						triangle1A[1] = a[1] + 2.0;
+						triangle1B[0] = a[0];
+						triangle1B[1] = a[1] + 2.0;
+						triangle1C[0] = a[0];
+						triangle1C[1] = a[1];
+
+						triangle2A[0] = b[0];
+						triangle2A[1] = b[1] + 2.0;
+						triangle2B[0] = b[0] - 2.0;
+						triangle2B[1] = b[1] + 2.0;
+						triangle2C[0] = b[0];
+						triangle2C[1] = b[1];
+						bool placedTop = mathM->pointInRectangle(center,rectA,rectB,rectC,rectD) || mathM->pointInTriangle(center, triangle1A, triangle1B, triangle1C) || mathM->pointInTriangle(center, triangle2A, triangle2B, triangle2C);
+
+						if(placedTop)
+						{
+							player1->setZPrevious(player1->getCoorZ());
+							player1->setCoorZ(a[1] + 4.01);
+						}
+					}
+					else
+					{
+						if(circleCD > 0)
+						{
+							//On Bottom of the object
+							double rectA[2], rectB[2], rectC[2], rectD[2];
+							double triangle1A[2], triangle1B[2], triangle1C[2];
+							double triangle2A[2], triangle2B[2], triangle2C[2];
+							rectA[0] = c[0] ;
+							rectA[1] = c[1];
+							rectB[0] = d[0];
+							rectB[1] = d[1];
+							rectC[0] = c[0];
+							rectC[1] = c[1] - 2.0;
+							rectD[0] = d[0];
+							rectD[1] = d[1] - 2.0;
+
+							triangle1A[0] = c[0] + 2.0;
+							triangle1A[1] = c[1] - 2.0;
+							triangle1B[0] = c[0];
+							triangle1B[1] = c[1];
+							triangle1C[0] = c[0];
+							triangle1C[1] = c[1] - 2.0;
+
+							triangle2A[0] = d[0];
+							triangle2A[1] = d[1] - 2.0;
+							triangle2B[0] = d[0];
+							triangle2B[1] = d[1];
+							triangle2C[0] = d[0] - 2.0;
+							triangle2C[1] = d[1] - 2.0;
+							bool placedBottom = mathM->pointInRectangle(center,rectA,rectB,rectC,rectD) || mathM->pointInTriangle(center, triangle1A, triangle1B, triangle1C) || mathM->pointInTriangle(center, triangle2A, triangle2B, triangle2C);
+
+							if(placedBottom)
+							{
+								player1->setZPrevious(player1->getCoorZ());
+								player1->setCoorZ(c[1] - 0.01);
+							}
+						}
+						else
+						{
+							if(circleAC > 0)
+							{
+								//On left of the object
+								double rectA[2], rectB[2], rectC[2], rectD[2];
+								double triangle1A[2], triangle1B[2], triangle1C[2];
+								double triangle2A[2], triangle2B[2], triangle2C[2];
+								rectA[0] = a[0] + 2.0;
+								rectA[1] = a[1];
+								rectB[0] = a[0];
+								rectB[1] = a[1];
+								rectC[0] = a[0] + 2.0;
+								rectC[1] = a[1] - 2.0;
+								rectD[0] = a[0];
+								rectD[1] = a[1] - 2.0;
+
+								triangle1A[0] = a[0] + 2.0;
+								triangle1A[1] = a[1] + 2.0;
+								triangle1B[0] = a[0];
+								triangle1B[1] = a[1];
+								triangle1C[0] = a[0] + 2.0;
+								triangle1C[1] = a[1];
+
+								triangle2A[0] = c[0] + 2.0;
+								triangle2A[1] = c[1];
+								triangle2B[0] = c[0];
+								triangle2B[1] = c[1];
+								triangle2C[0] = c[0] + 2.0;
+								triangle2C[1] = c[1] - 2.0;
+								bool placedLeft = mathM->pointInRectangle(center,rectA,rectB,rectC,rectD) || mathM->pointInTriangle(center, triangle1A, triangle1B, triangle1C) || mathM->pointInTriangle(center, triangle2A, triangle2B, triangle2C);
+
+								if(placedLeft)
+								{
+									player1->setXPrevious(player1->getCoorX());
+									player1->setCoorX(a[0] + 2.01);
+								}
+							}
+							else
+							{
+								if(circleBD > 0)
+								{
+									//On right of the object
+									double rectA[2], rectB[2], rectC[2], rectD[2];
+									double triangle1A[2], triangle1B[2], triangle1C[2];
+									double triangle2A[2], triangle2B[2], triangle2C[2];
+									rectA[0] = b[0];
+									rectA[1] = b[1];
+									rectB[0] = b[0] - 2.0;
+									rectB[1] = b[1];
+									rectC[0] = d[0];
+									rectC[1] = d[1];
+									rectD[0] = d[0] - 2.0;
+									rectD[1] = d[1];
+
+									triangle1A[0] = b[0] - 2.0;
+									triangle1A[1] = b[1] + 2.0;
+									triangle1B[0] = b[0];
+									triangle1B[1] = b[1] - 2.0;
+									triangle1C[0] = b[0];
+									triangle1C[1] = b[1];
+
+									triangle2A[0] = d[0];
+									triangle2A[1] = d[1];
+									triangle2B[0] = d[0] - 2.0;
+									triangle2B[1] = d[1];
+									triangle2C[0] = d[0] - 2.0;
+									triangle2C[1] = d[1] - 2.0;
+									bool placedRight = mathM->pointInRectangle(center,rectA,rectB,rectC,rectD) || mathM->pointInTriangle(center, triangle1A, triangle1B, triangle1C) || mathM->pointInTriangle(center, triangle2A, triangle2B, triangle2C);
+
+									if(placedRight)
+									{
+										player1->setXPrevious(player1->getCoorX());
+										player1->setCoorX(b[0] - 2.01);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}

@@ -1,0 +1,142 @@
+English
+Game
+Options
+Informations
+Leave
+Previous
+Resume
+Main Menu
+Display
+Sounds
+Controls
+Mods
+Mods available:
+Mouse
+Resolution
+Full Screen
+Fog
+Textures quality
+Light quality
+Antialiasing
+Anisotropic filter
+Impacts quantity
+Particles quantity
+View
+Gamma
+Language
+Mouse sensibility
+Invert Y axis
+Movement smoothing
+Yes
+No
+Activated
+Disabled
+Very low
+Low
+Medium
+High
+Very high
+Very close
+Rather close
+Close
+Rather far
+Far
+Very far
+Sound effects
+Music
+LOADING
+640 x 480
+800 x 600
+1024 x 768
+1280 x 1024
+1600 x 1200
+1280 x 800
+1440 x 900
+1680 x 1050
+1920 x 1200
+0x
+2x
+4x
+8x
+16x
+0%
+10%
+20%
+30%
+40%
+50%
+60%
+70%
+80%
+90%
+100%
+110%
+120%
+130%
+140%
+150%
+160%
+170%
+180%
+190%
+200%
+Some modifications will not take effect until a restart of the game.
+Waiting for a key.
+Move forward
+Move backward
+Strafe left
+Strafe right
+Turn left
+Turn right
+Look up
+Look down
+Center view
+Flashlight
+Crouch
+Jump
+Fire
+Previous Weapon
+Next Weapon
+Reload
+Handgun
+Shotgun
+Daídalos is an amateur project developped in C++,
+it use OpenGL as displaying library, SDL as
+windowing library and SDL Mixer as sound library.
+It's developped by myself during my spare time.
+
+The project is currently under development, 
+since July 2008.
+Don't hesitate to give your opinion on the
+project at the address:
+http://www.stephane-baudoux.com
+Stéphane Baudoux
+Building environnment...
+Loading objects...
+Building pillars...
+Loading music...
+Initializing player...
+Done
+No name
+Incomplete mod
+Level: 
+Magnetic card required
+Magnetic card acquired
+You already have this magnetic card
+Flashlight acquired
+You already have a flashlight
+Handgun acquired
+You already have a handgun
+Shotgun acquired
+You already have a shotgun
+Handgun ammo acquired
+You don't have a handgun
+You can't have more handgun ammo
+Shotgun ammo acquired
+You don't have a shotgun
+You can't have more shotgun ammo
+First-aid kit used
+Your health is at maximum
+Bulletproof vest acquired
+Your vest is not damaged
+You're dead. Press Fire to respawn.

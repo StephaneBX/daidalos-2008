@@ -1,0 +1,142 @@
+Français
+Jeu
+Options
+A propos
+Quitter
+Retour
+Retour au jeu
+Menu Principal
+Affichage
+Son
+Contrôles
+Modules
+Liste des modules disponibles:
+Souris
+Résolution
+Plein écran
+Brouillard
+Qualité des textures
+Qualité de la lumière
+Anticrénelage
+Filtre anisotropique
+Quantité d'impacts
+Quantité de particules
+Profondeur de champ
+Gamma
+Langue
+Sensibilité
+Invertion de l'axe Y
+Lissage du déplacement
+Oui
+Non
+Activé
+Désactivé
+Très bas
+Bas
+Moyen
+Haut
+Très haut
+Très proche
+Assez Proche
+Proche
+Assez loin
+Loin
+Très loin
+Effets sonores
+Musique
+CHARGEMENT
+640 x 480
+800 x 600
+1024 x 768
+1280 x 1024
+1600 x 1200
+1280 x 800
+1440 x 900
+1680 x 1050
+1920 x 1200
+0x
+2x
+4x
+8x
+16x
+0%
+10%
+20%
+30%
+40%
+50%
+60%
+70%
+80%
+90%
+100%
+110%
+120%
+130%
+140%
+150%
+160%
+170%
+180%
+190%
+200%
+Certaines modifications ne seront prises en compte que lors du prochain redémarage du jeu.
+En attente d'une touche.
+Avancer
+Reculer
+Aller à gauche
+Aller à droite
+Tourner à gauche
+Tourner à droite
+Regarder en haut
+Regarder en bas
+Centrer la vue
+Lampe torche
+S'accroupir
+Sauter
+Tirer
+Arme précédente
+Arme suivante
+Recharger
+Pistolet
+Fusil à pompe
+Daídalos est un projet amateur développé en C++, 
+utilisant OpenGL comme librairie d'affichage,
+SDL comme librairie de fenêtrage et SDL Mixer 
+comme librairie son. Il est développé par moi-
+même durant mon temps libre.
+Le projet est actuellement en développement, 
+et ce depuis Juillet 2008.
+N'hésitez pas à donner votre avis sur le projet
+à l'adresse:
+http://www.stephane-baudoux.com
+Stéphane Baudoux
+Mise en place de l'environnement...
+Chargement des objets...
+Mise en place des pilliers...
+Chargement de la musique...
+Initialisation du joueur...
+Chargement terminé
+Sans nom
+Module incomplet
+Niveau: 
+Clé magnétique requise
+Clé magnétique obtenue
+Vous avez déjà cette clé magnétique
+Lampe torche obtenue
+Vous avez déjà la lampe torche
+Pistolet obtenu
+Vous avez déjà le pistolet
+Fusil à pompe obtenu
+Vous avez déjà le fusil à pompe
+Munition pour pistolet obtenue
+Vous ne possédez pas de pistolet
+Vous ne pouvez plus porter de munitions pour pistolet
+Munition pour le fusil à pompe obtenue
+Vous ne possédez pas le fusil à pompe
+Vous ne pouvez plus porter de munitions pour le fusil à pompe
+Trousse de soins utilisée
+Votre santé est au maximum
+Gillet pare-balles equipé
+Votre gillet pare-balles est intact
+Vous êtes mort. Appuyez sur Tirer pour réapparaître.

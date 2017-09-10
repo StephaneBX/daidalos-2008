@@ -1,0 +1,23 @@
+Tout les types d'objets dans le jeu.
+
+-Caisse: 01
+Type 01: Carré
+Type 02: Rectangle (1x2)
+Type 03: Rectangle (1x3)
+
+-Bidon: 02
+Type 01: Métal
+Type 02: Bois
+
+-Muret: 03
+Type 01: x
+Type 02: z
+
+-Pillier: 04
+Type 01: carré
+
+- Trousse de soins: 10
+- Armure: 11
+- Munitions handgun: 12
+- Shotgun: 13
+- Munitions shotgun: 14

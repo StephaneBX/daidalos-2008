@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<environments>
+	<environment_0>
+		<wall></wall>
+		<ceil></ceil>
+		<ground></ground>
+	</environment_0>
+	<environment_1>
+		<wall></wall>
+		<ceil></ceil>
+		<ground></ground>
+	</environment_1>
+	<environment_2>
+		<wall></wall>
+		<ceil></ceil>
+		<ground></ground>
+	</environment_2>
+</environments>

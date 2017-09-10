@@ -1,0 +1,13 @@
+Version 0.9
+- Modification du volume des sons des portes et du joueur		[x]
+- Correction de bug: Le flash de l'arme pouvait rester actif si
+le joueur mourrait au moment de tirer							[x]
+- Son joué au lancement des projectiles							[ ]
+- 1920 * 1080													[ ]
+- Gestion des matériaux											[ ]
+- Gestion des sol et plafond custom								[ ]
+- Ennemis immobiles												[ ]
+- Carte des lieux												[ ]
+
+Version 1.0
+- Ennemis mobiles IA											[ ]
